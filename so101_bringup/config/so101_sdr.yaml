@@ -11,17 +11,13 @@ sdr:
 
     # List of topics and their types to record.
     topic_names: [
-      "/follower/joint_states",
-      "/leader/joint_states",
-      "/follower/cam_front/image_raw",
-      "/static_camera/cam_side/color/image_raw"
-
+      "/joint_trajectory_controller/joint_trajectory",
+      "/gripper_controller/commands"
     ]
+    # dito
     topic_types: [
-      "sensor_msgs/msg/JointState",
-      "sensor_msgs/msg/JointState",
-      "sensor_msgs/msg/Image",
-      "sensor_msgs/msg/Image"
+      "trajectory_msgs/msg/JointTrajectory",
+      std_msgs/msg/Float64MultiArray
     ]
 
     # The task description which will be used for language model prompts for the robot's agent.
