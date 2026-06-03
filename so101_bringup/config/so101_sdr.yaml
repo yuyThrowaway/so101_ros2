@@ -1,20 +1,21 @@
 sdr:
   ros__parameters:
     # The base name for each bag file. A timestamp will be appended to this.
-    bag_name_prefix: "robot_data"
+    bag_name_prefix: "leader_record"
 
     # The parent directory where all recording session folders will be saved.
-    copy_destination: "<your abs path to the desired dir>"
+    copy_destination: "/home/ba-yy/ros2_ws/recordings/"
 
     # Maximum size of each individual .db3 file in bytes before splitting.
     max_file_size: 1073741824  # 1024 MiB * 1024 * 1024
 
     # List of topics and their types to record.
+    # Topic names and types are already adjusted for the Teleoperation
     topic_names: [
       "/joint_trajectory_controller/joint_trajectory",
       "/gripper_controller/commands"
     ]
-    # dito
+
     topic_types: [
       "trajectory_msgs/msg/JointTrajectory",
       std_msgs/msg/Float64MultiArray

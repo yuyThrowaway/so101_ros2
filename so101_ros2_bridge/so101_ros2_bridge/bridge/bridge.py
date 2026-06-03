@@ -130,7 +130,8 @@ class SO101ROS2Bridge(Node, ABC):
             # Update the pre-allocated lists instead of creating new ones
             for i, joint in enumerate(self.JOINT_NAMES):
                 if joint == 'gripper':
-                    pos = ((obs.get(f'{joint}.pos', 0.0)) / 100.0) * math.pi
+                    # Calculating the position by analyzing how open the gripper is in %. Therefore multiply by gripper joint range.
+                    pos = ((obs.get(f'{joint}.pos', 0.0)) / 100.0) * 1.91986
                 else:
                     if self.use_degrees:
                         pos = math.radians(obs.get(f'{joint}.pos', 0.0))
